@@ -40,22 +40,22 @@ npm run build
 
 For a single-service production deployment, use a build command that compiles the frontend and server:
 ```
-npm install && npm run build
+npm install --include=dev && npm run build
 ```
 
 Then start:
 ```
-NODE_ENV=production node dist-server/index.js
+npm start
 ```
 
-Ensure the server build outputs `dist-server/index.js`. The server serves the built `dist/` frontend when `NODE_ENV=production`.
+Ensure the server build outputs `dist-server/index.js`. The server serves the built `dist/` frontend when `NODE_ENV=production` or whenever `dist/` is present.
 
 ## Deploy (single service)
 
 Deploy this repository to a Node.js host that supports persistent processes and WebSockets, such as Render or Railway.
 
-- Build command: `npm install && npm run build`
-- Start command: `NODE_ENV=production node dist-server/index.js`
+- Build command: `npm install --include=dev && npm run build`
+- Start command: `npm start`
 - Add `NODE_ENV=production`
 - The host provides `PORT`; the server listens on it.
 - Open the host's public URL and test with two separate devices.
